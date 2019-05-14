@@ -25,7 +25,7 @@ app.use(koaBody({
  app.use(router.allowedMethods());
 
 
-router.get('/',(ctx) => {
+router.get('/',(ctx,next) => {
     ctx.type = 'html';
     const pathUrl = path.join(__dirname,'./static/upload.html');
     ctx.body = fs.createReadStream(pathUrl);
